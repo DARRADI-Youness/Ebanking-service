@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Date;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -25,6 +26,7 @@ public class EbankingServiceApplication {
 						.type(Math.random()>0.5? AccountType.CURRENT_ACCOUNT:AccountType.SAVING_ACCOUNT)
 						.balance(10000+Math.random()*90000)
 						.currency("MAD")
+						.createdAt(new Date())
 						.build();
 				bankAccountRepository.save(bankAccount);
 			}
